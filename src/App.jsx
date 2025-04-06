@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState, useEffect } from "react";
+import ContactList from "./components/ContactList/ContactList";
+import "./App.css";
+import SearchBox from "./components/SearchBox/SearchBox";
+import ContactForm from "./components/ContactForm/ContactForm";
 
-function App() {
-  const [count, setCount] = useState(0)
 
+export default function App() {
+//   //Стан зберігається у памяті вкладці браузера
+//   const [contacts, setContacts] = useState(() => {
+//     // Зчитуємо значення за ключем
+//     const savedContacts = localStorage.getItem("contacts");
+//     // якщо там щось є, парсимо та повертаємо значення стану або повертаємо значення за замовч
+//     return savedContacts ? JSON.parse(savedContacts) : initialContacts;
+//   });
+
+// // Зберігаємо в локальне сховище контакти між перезавантаженнями сторінки, при умові якщо масив не порожній (Це зроблено, щоб уникнути збереження порожнього масиву при першому завантаженні)
+//   useEffect(()=> {
+//     if (contacts.length > 0) {
+//     localStorage.setItem("contacts", JSON.stringify(contacts));
+//   }
+//   // Ефект буде виконуватись вище кожного разу тільки тоді, коли змінюється стан контакс
+//  }, [contacts]);
+
+//   const [search, setSearch] = useState("");
+// //Функція зміни стану
+//   const addContacts = (newContacts) => {
+//     //Буде викликана реактом під капотом і отримає обовґязковий один аргумент, обявляємо параметр, що буде поточне значення стану contacts на момент оновлення
+//     setContacts((prevContacts) => {
+//     //Розпилюємо попередні контакти і додаємо нові контакти
+//       return [...prevContacts, newContacts];
+//     });
+//   };
+// //
+//   const deleteContacts = (contactId) => {
+//     //Використовуємо функіональну форму сетеру, повертає новий стан,
+//     setContacts(prevContacts => {
+//       //Відфільтрує масив, якщо індентифікатор співпаде це означатиме що той елемент, котрий потрібно видалити і не піде в новий масив
+//       return prevContacts.filter((contact) => contact.id !== contactId);
+//     });
+//   };
+//   //При кожному оновленні двох станів(contacts or search) буде відфільтровуватись значення
+//   const visibleContacts = contacts.filter((contact) => contact.name.toLowerCase().includes(search.toLowerCase())
+// );
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <SearchBox />
+<ContactList /> 
+    </div>
+  );
 }
 
-export default App
