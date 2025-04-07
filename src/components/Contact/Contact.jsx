@@ -11,8 +11,8 @@ const Contact = ({data}) => {
   return (
     <div className={css.container}>
         <div className={css.text}>
-      <p className={css.name}><CgProfile  size="20"/>{data.name}</p>
-      <p className={css.number}><BsTelephoneFill size="20" />{data.number}</p>
+      <CgProfile  className={css.number}size="20"/><p className={css.name}>{data.name}</p>
+      <BsTelephoneFill className={css.number} size="20" /><p className={css.number}>{data.number}</p>
       </div>
       <button className={css.btn} onClick={handleDelete}>
         <MdClose size={24} />

@@ -14,27 +14,30 @@ const slice = createSlice({
     reducers: {
         //імя фабрики екшенів
         addContact: (state, action) => {
-            return {
-                ...state,
-                items: [...state.items, action.payload],
+            //за допомогою  Immer імутабельно оновлює оригінал, змінюємо копію стану(чернетка) а не сам стан(особливість Redux) і чернетку змінюємо як забажаємо
+            state.items.push(action.payload);
+
+            // return {
+            //     ...state,
+            //     items: [...state.items, action.payload],
+
                 //payload містить дані, які передаються разом з дією.
 //action.payload – це властивість об'єкта дії (action) в Redux, яка містить дані, необхідні для оновлення стану. 
-            };
-        },
+            },
+        
 
         deleteContact: (state, action) => {
             //(contact) => contact.id !== action.payload – функція-фільтр, яка для кожного контакту перевіряє:
 // Якщо contact.id НЕ дорівнює значенню, що міститься в action.payload, тоді контакт залишається в масиві.
             // Якщо contact.id дорівнює action.payload, він виключається.
             
-            return {
-                ...state,
-                items: state.items.filter((contact) => contact.id !== action.payload),
-            };
+
+            state.items = state.items.filter((contact) => contact.id !== action.payload);
+
             
 // Таким чином, коли редюсер отримує дію, він може отримати значення з action.payload і використовувати його для обчислення нового стану.
         },
-    }
+    },
 });
 // об"єкт фабрик екшенів(actions) генератор екшенів, експортуємо екшени, сигналізує що потрібно змінити 
 export const { addContact, deleteContact } = slice.actions;

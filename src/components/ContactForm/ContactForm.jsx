@@ -11,7 +11,7 @@ const initialValues = {
   };
   const ContactSchema = Yup.object().shape({
     name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required"),
-    number: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required")
+    number: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required") .matches(/^\d{3}-\d{2}-\d{2}$/, 'Number Format: 123-45-67')
 });
 
 const ContactForm = () => {
