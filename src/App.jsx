@@ -1,6 +1,6 @@
 // import { useState, useEffect } from "react";
 import ContactList from "./components/ContactList/ContactList";
-import "./App.css";
+import css from "./App.module.css";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
 
@@ -44,7 +44,7 @@ export default function App() {
 // );
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1 className={css.headtitile}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
 <ContactList /> 

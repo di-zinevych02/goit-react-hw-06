@@ -11,8 +11,8 @@ const SearchBox = () => {
 
   return (
     <div className={css.filter}>
-      <span>Find contacts by name</span>
-      <input type="text" onChange={handleInput}/> 
+      <span className={css.findcontact}>Find contacts by name</span>
+      <input className={css.inputcontact} type="text" onChange={handleInput}/> 
     </div>
   );
 };

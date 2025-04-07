@@ -38,13 +38,13 @@ const ContactForm = () => {
         >
             <Form className={css.form}>
                 <div className={css.group}>
-                    <label htmlFor={'${fieldId}-name'}>Name</label>
+                    <label className={css.label}htmlFor={'${fieldId}-name'}>Name</label>
                     <Field className={css.input} type="text" name="name" id={'${fieldId}-name'}/>
                     <ErrorMessage className={css.error} name="name" component="span"/>
                 </div>
 
                 <div className={css.group}>
-                    <label htmlFor={'${fieldId}-number'}>Number</label>
+                    <label className={css.label}htmlFor={'${fieldId}-number'}>Number</label>
                     <Field className={css.input} type="number" name="number" id={'${fieldId}-number'}/>
                     <ErrorMessage className={css.error} name="number" component="span"/>
                 </div>
