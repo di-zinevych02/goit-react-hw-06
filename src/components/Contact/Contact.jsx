@@ -10,12 +10,18 @@ const Contact = ({data}) => {
     const handleDelete = () => dispatch(deleteContact(data.id));
   return (
     <div className={css.container}>
-        <div className={css.text}>
-      <CgProfile  className={css.number}size="20"/><p className={css.name}>{data.name}</p>
-      <BsTelephoneFill className={css.number} size="20" /><p className={css.number}>{data.number}</p>
-      </div>
+      <div className={css.text}>
+  <div className={css.row}>
+    <CgProfile className={css.icon} size="20" />
+    <p className={css.name}>{data.name}</p>
+  </div>
+  <div className={css.row}>
+    <BsTelephoneFill className={css.icon} size="20" />
+    <p className={css.number}>{data.number}</p>
+  </div>
+</div>
       <button className={css.btn} onClick={handleDelete}>
-        <MdClose size={24} />
+        <MdClose className={css.icon} size={24} />
       </button>
       
     </div>

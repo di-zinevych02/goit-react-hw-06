@@ -43,11 +43,11 @@ export default function App() {
 //   const visibleContacts = contacts.filter((contact) => contact.name.toLowerCase().includes(search.toLowerCase())
 // );
   return (
-    <div>
+    <div className={css.maincontainer}>
       <h1 className={css.headtitile}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-<ContactList /> 
+      <ContactList />
     </div>
   );
 }
